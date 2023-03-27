@@ -2,10 +2,12 @@
 This is a React hook easy to use. This hook allow you to know if an element is present in the current viewport.
 It returns you a boolean. The boolean will be set at true when the element appear on the viewport but only once.
 
+[![NPM Version](https://badgen.net/npm/v/react-viewport-detect)](https://www.npmjs.com/package/react-mui-snackbar)
+![Installed size](https://badgen.net/packagephobia/install/react-viewport-detect)
 
 ## Installation 
 ```bash
-npm i @react/visible
+npm i react-viewport-detect
 ```
 
 ## Usage
