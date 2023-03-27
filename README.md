@@ -15,7 +15,7 @@ To use this package you need a React ref.
 By default the value is 'False'. Once the ref is present in the VP the boolean will be set at true.
 
 ````jsx
-import useVisible from "@react/visible";
+import useVisible from "react-viewport-detect";
 import {ref} from "react" ;
 
 const App () => {
