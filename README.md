@@ -2,6 +2,7 @@
 This is a React hook easy to use. This hook allow you to know if an element is present in the current viewport.
 It returns you a boolean. The boolean will be set at true when the element appear on the viewport but only once.
 
+
 ## Installation 
 ```bash
 npm i @react/visible
