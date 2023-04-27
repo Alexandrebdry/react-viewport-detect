@@ -1,6 +1,6 @@
 {
   "name": "react-viewport-detect",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": false,
   "description": "A React hook to detect if an HTML Element has been display in the viewport. This is easy to use. You just have to provide an react ref. By default it freeze the value when the element has been display. That is nice to triggered one time animation !",
   "main": "dist/index.cjs.js",
