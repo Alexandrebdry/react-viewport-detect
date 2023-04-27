@@ -1,8 +1,8 @@
 {
   "name": "react-viewport-detect",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "private": false,
-  "description": "This is a react hook easy to use. This hook allow you to know if an element is present in the current viewport. It returns you a boolean. The boolean will be set at true when the element appear on the viewport but only once.",
+  "description": "A React hook to detect if an HTML Element has been display in the viewport. This is easy to use. You just have to provide an react ref. By default it freeze the value when the element has been display. That is nice to triggered one time animation !",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "sideEffects": false,
@@ -18,15 +18,7 @@
     "url": "https://github.com/Alexandrebdry/react-in-viewport"
   },
   "keywords": [
-    "react",
-    "react-hook",
-    "react-visible",
-    "react-visible-once",
-    "react-viewport",
-    "viewport",
-    "intersection observer",
-    "element-in-viewport",
-    "react-animation"
+    "react", "react hook", "intersection observer" , "react viewport" , "react viewport detect" , "freeze" , "react animation" , "trigger animation"
   ],
   "author": "alexandre baudry",
   "license": "GPL-3.0-or-later",
@@ -52,7 +44,7 @@
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-node-externals": "^5.0.1"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^18.2.0"
   }
 }

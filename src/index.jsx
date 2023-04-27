@@ -1,35 +1,41 @@
-import react from "react";
+import React from 'react' ;
+export const useViewportDetection = (ref,  {
+    rootMargin : rootMargin =  '0px',
+    root : root =  null,
+    threshold: threshold =  0,
+    freeze: freeze = true
+}) => {
 
-/**
- * This is a React hook easy to use. This hook allow you to know if an element is present in the current viewport.
- * It returns you a boolean. The boolean will be set at true when the element appear on the viewport but only once.
- *
- * @param ref - a React ref to test if the ref is present in VP
- * @returns {boolean}
- */
-const useVisible = (ref) => {
+    const [isDetected,setIsDetected] = React.useState(false) ;
 
-    const [isVisible, setIsVisible] = react.useState(false) ;
-    const observer = react.useMemo(
-        () =>
-            new IntersectionObserver(([entry]) => {
-                setIsVisible(entry.isIntersecting)
-                    if(entry.isIntersecting)
-                        observer.disconnect() ;
-                }
-            ),
-        [],
-    );
+    React.useEffect(() => {
 
-    react.useEffect(() => {
-        if( ! isVisible)
-            observer.observe(ref.current);
-    }, [ref, observer]);
+        if ( !  Object.prototype.hasOwnProperty.call(window,'IntersectionObserver'))
+            return new Error('Intersection Observer is not supported by this browser');
 
-    return isVisible ;
+        const observerParam = { threshold : threshold, root:  root,  marginRoot: rootMargin} ;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsDetected(entry.isIntersecting) ;
+
+                // Freeze the detection.
+                if (freeze)
+                    if(entry.isIntersecting) observer.disconnect() ;
+
+            }, observerParam) ;
+
+        // False by default it will be triggered
+        // at least once
+        if ( isDetected === false )
+            observer.observe(ref.current) ;
+
+        return () => observer.disconnect();
+
+    },[ref]) ;
+
+    return isDetected ;
 
 }
 
-export default useVisible ;
 
 

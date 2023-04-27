@@ -1,28 +1,29 @@
 # React viewport detect
-This is a React hook easy to use. This hook allow you to know if an element is present in the current viewport.
-It returns you a boolean. The boolean will be set at true when the element appear on the viewport but only once.
+A React hook to detect if an HTML Element has been display in the viewport. 
+This is easy to use. You just have to provide an react ref. 
+By default it freeze the value when the element has been display. 
+That is nice to triggered one time animation !
 
 [![NPM Version](https://badgen.net/npm/v/react-viewport-detect)](https://www.npmjs.com/package/react-mui-snackbar)
-![Installed size](https://badgen.net/packagephobia/install/react-viewport-detect)
+![Minified size](https://img.shields.io/bundlephobia/min/react-viewport-detect)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
-## Installation 
-```bash
-npm i react-viewport-detect
-```
 
 ## Usage
-To use this package you need a React ref. 
-By default the value is 'False'. Once the ref is present in the VP the boolean will be set at true.
 
-````jsx
-import useVisible from "react-viewport-detect";
-import {ref} from "react" ;
+### Basic Usage
+```jsx
+import {useViewportDetection} from "react-viewport-detect";
+import {useRef, useEffect} from "react" ;
 
 const App () => {
     
-    const ref = ref() ; 
-    const isVisible = useVisible(ref) ;
-    
+    const ref = useRef() ; 
+    const isVisible = useViewportDetection(ref) ;
+
+    useEffect(() => {
+        console.log(isVisible) ;
+    },[isVisible]) ;
     
     return (
         <div>
@@ -36,13 +37,55 @@ const App () => {
     );
     
 };
-````
+```
 
-## Licence
-[GPL 3](https://www.gnu.org/licenses/gpl-3.0.fr.html)
+### Advanced 
+```jsx
+import {useViewportDetection} from "react-viewport-detect";
+import {useRef, useEffect} from "react" ;
+
+const App () => {
+    
+    const ref = useRef() ; 
+    const isVisible = useViewportDetection(ref, {freeze: false, threshold: 1}) ;
+
+    useEffect(() => {
+        console.log(isVisible) ;
+    },[isVisible]) ;
+    
+    return (
+        <div>
+            <h1>React visible hook</h1>
+            <div ref={ref} >
+                <p>
+                    Do I am visible ? 
+                </p>
+            </div>
+        </div>
+    );
+    
+};
+```
+
+## Function parameters
+### useViewportDetection
+
+| Parameter                               | Type  | Description                                                                                       | Default                                                          |
+|-----------------------------------------|-------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| `ref`                                   | React ref | The React ref to detect                                                                           | none                                                             | 
+| `{rootMargin, root, threshold, freeze}` | Array | Intersection Observer options + freeze. Freeze is to keep the value when it has been display once | `{rootMargin = 0px,  root = null, threshold = 0, freeze = true}` |
+[More about Intersection Observer options](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)  
+
+
+## Next steps
+
+- TypeScript Support
+- Example page
+- Improve the DX 
+- Unit Testing
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Authors 
-- [Alexandre BAUDRY](https://github.com/Alexandrebdry)
+Contributions are always welcome!
+You can create a new pull request with changes or create a new issue and I will update this project
+

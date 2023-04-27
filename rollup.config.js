@@ -5,6 +5,7 @@ import externals from "rollup-plugin-node-externals";
 import terser from "@rollup/plugin-terser";
 import del from "rollup-plugin-delete";
 
+
 import pkg from "./package.json" ;
 
 export default [
@@ -22,7 +23,7 @@ export default [
                 exclude: "**/node_modules/**",
                 extensions: [".js",".jsx",".ts",".tsx"]
             }),
-            terser()
+            terser(),
         ],
         output: [
             { file: pkg.main, format: "cjs" },
