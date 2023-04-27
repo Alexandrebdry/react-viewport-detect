@@ -74,6 +74,7 @@ const App () => {
 |-----------------------------------------|-------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | `ref`                                   | React ref | The React ref to detect                                                                           | none                                                             | 
 | `{rootMargin, root, threshold, freeze}` | Array | Intersection Observer options + freeze. Freeze is to keep the value when it has been display once | `{rootMargin = 0px,  root = null, threshold = 0, freeze = true}` |
+
 [More about Intersection Observer options](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)  
 
 
