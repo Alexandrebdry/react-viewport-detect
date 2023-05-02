@@ -4,7 +4,7 @@ export const useViewportDetection = (ref,  {
     root : root =  null,
     threshold: threshold =  0,
     freeze: freeze = true
-}) => {
+}  ) => {
 
     const [isDetected,setIsDetected] = React.useState(false) ;
 

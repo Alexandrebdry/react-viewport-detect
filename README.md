@@ -8,6 +8,9 @@ That is nice to triggered one time animation !
 ![Minified size](https://img.shields.io/bundlephobia/min/react-viewport-detect)
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
+## Demo 
+
+[example page](https://alexandrebdry.vercel.app/react-viewport-detect)
 
 ## Usage
 
@@ -81,7 +84,6 @@ const App () => {
 ## Next steps
 
 - TypeScript Support
-- Example page
 - Improve the DX 
 - Unit Testing
 
